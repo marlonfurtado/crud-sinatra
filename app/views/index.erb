@@ -18,6 +18,7 @@
       <table class="table well">
         <thead>
           <tr>
+            <th>ID</th>
             <th>Name</th>
             <th>Lastname</th>
             <th>Phone</th>
@@ -29,6 +30,7 @@
         <tbody>
           <% @user.each do |user| %>
           <tr>
+            <td><%= user.id %></td>
             <td><%= user.name %></td>
             <td><%= user.lastname %></td>
             <td><%= user.phone %></td>

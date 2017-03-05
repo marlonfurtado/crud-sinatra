@@ -2,16 +2,55 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Sinatra MVC</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+  integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <title>Home</title>
 </head>
 <body>
-  <h1>Aceleradora 11:</h1>
+  <header class="row-fluid text-center">
+    <h2>Contact List</h2>
+  </header>
+  <section class="row-fluid">
+    <section class="span12">
 
-  <% @user.each do |user| %>
-  <li><%= user.name %> <%= user.lastname %></li>
-  <li><%= user.phone %></li><br />
-  <% end %>
+      <form action="/contato" method="post" class="well form-inline">
+        <input type="text" name="contato[nome]" placeholder="Name">
+        <input type="text" name="contato[lastname]" placeholder="Lastname">
+        <input type="tel" name="contato[phone]" placeholder="Phone">
+        <input type="email" name="contato[email]" placeholder="E-mail">
+        <button type="submit" class="btn btn-primary">OK</button>
+      </form>
 
-  <h3>Test Sinatra MVC</h3>
+      <table class="table well">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Lastname</th>
+            <th>Phone</th>
+            <th>E-mail</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @user.each do |user| %>
+          <tr>
+            <td><%= user.name %></td>
+            <td><%= user.lastname %></td>
+            <td><%= user.phone %></td>
+            <td><%= user.email %></td>
+            <td>
+              <span id="notify_<%= user.email %>" class="label label-default">Offline</span>
+            </td>
+            <td>
+              <a href="/contato/" class="btn btn-default">Detalhes</a>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </section>
+  </section>
+
 </body>
 </html>

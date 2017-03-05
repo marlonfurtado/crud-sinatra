@@ -14,8 +14,24 @@ get '/contact/:id' do
   erb :contact
 end
 
+# Update
+get '/contact/:id/update' do
+  @user = User.find(params[:id])
+  @title = "Update | Contact list"
+  @header = erb :header
+
+  erb :update_contact
+end
+
+# Update
+post '/contact/:id/update' do
+  User.update(params[:id], params[:contact])
+
+  redirect "/contact/#{params[:id]}"
+end
+
 # Delete
-post '/contact/delete/:id' do
+post '/contact/:id/delete' do
   @user = User.find(params[:id])
   @user.destroy
 

@@ -1,0 +1,31 @@
+<%= @header %>
+
+<header class="row-fluid text-center">
+  <h2>Contact Information</h2>
+</header>
+<section class="row-fluid text-center">
+  <form action="/contact/<%= @user.id %>/update" method="post">
+      <div class="form-group">
+        <label>Name:</label>
+        <input type="text" name="contact[name]" class="form-control edit-input" value="<%= @user.name %>">
+      </div>
+      <div class="form-group">
+        <label>Lastname:</label>
+        <input type="text" name="contact[lastname]" class="form-control edit-input" value="<%= @user.lastname %>">
+      </div>
+      <div class="form-group">
+        <label>Phone:</label>
+        <input type="tel" name="contact[phone]" class="form-control edit-input" value="<%= @user.phone %>">
+      </div>
+      <div class="form-group">
+        <label>E-mail:</label>
+        <input type="text" name="contact[email]" class="form-control edit-input" value="<%= @user.email %>">
+      </div>
+
+    <a href="/contact/<%= @user.id %>" class="btn btn-default">Back</a>
+    <button type="submit" class="btn btn-success">Update</button>
+
+  </form>
+</section>
+</body>
+</html>

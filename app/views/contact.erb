@@ -4,7 +4,7 @@
   <h2>Contact Information</h2>
 </header>
 <section class="row-fluid text-center">
-  <form action="/contact/delete/<%= @user.id %>" method="post">
+  <form action="/contact/<%= @user.id %>/delete" method="post">
     <fieldset disabled>
       <div class="form-group">
         <label>Name:</label>
@@ -25,7 +25,7 @@
     </fieldset disabled>
 
     <a href="/" class="btn btn-default">Back</a>
-    <!-- <a href="/contato/<%= @user.id %>/editar" class="btn btn-info">Editar</a> -->
+    <a href="/contact/<%= @user.id %>/update" class="btn btn-info">Update</a>
     <button type="submit" class="btn btn-danger">Delete</button>
 
   </form>

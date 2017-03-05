@@ -5,3 +5,9 @@ get '/contact/:id' do
 
   erb :contact
 end
+
+post '/contact' do
+  @contact = User.create(params[:contact])
+
+  redirect '/'
+end

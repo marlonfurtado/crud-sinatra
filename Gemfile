@@ -9,11 +9,16 @@ gem "sinatra-activerecord"
 gem "activesupport"
 
 group :development,:test do
-  gem 'shotgun'
-  gem 'sqlite3'
+  gem "shotgun"
+  gem "sqlite3"
+end
+
+group :test do
+  gem "rspec"
+  gem "capybara"
 end
 
 group :production do
   # PostgreSQL
-  gem 'pg'
+  gem "pg"
 end

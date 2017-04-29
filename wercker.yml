@@ -4,18 +4,18 @@ box: ruby
 build:
   steps:
     - bundle-install
-    - script:
-        name: build
-        code: bundle install
 
-database:
-  steps:
+    - script:
+        name: echo ruby information
+        code: |
+          echo "ruby version $(ruby --version) running!"
+          echo "from location $(which ruby)"
+          echo -p "gem list: $(gem list)"
+
     - script:
         name: database
         code: bundle exec rake db:reset
 
-test:
-  steps:
     - script:
         name: test
         code: bundle exec rspec -fd

@@ -21,6 +21,6 @@ build:
         name: test
         code: bundle exec rspec -fd
 
-  steps:
-    - heroku-deploy:
-        run: rake db:migrate
+  # steps:
+  #   - heroku-deploy:
+  #       run: rake db:migrate

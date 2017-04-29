@@ -2,8 +2,17 @@ box: ruby
 # ruby:2.3.0
 
 build:
-    steps:
-        - bundle-install
-        - script:
-            name: rspec
-            code: bundle exec rspec -fd
+  steps:
+    - bundle-install
+
+database:
+  steps:
+    - script:
+        name: ActiveRecord
+        code: bundle exec rake db:reset
+
+test:
+  steps:
+    - script:
+        name: rspec
+        code: bundle exec rspec -fd

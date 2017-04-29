@@ -4,15 +4,18 @@ box: ruby
 build:
   steps:
     - bundle-install
+    - script:
+        name: build
+        code: bundle install
 
 database:
   steps:
     - script:
-        name: ActiveRecord
+        name: database
         code: bundle exec rake db:reset
 
 test:
   steps:
     - script:
-        name: rspec
+        name: test
         code: bundle exec rspec -fd

@@ -12,9 +12,12 @@ build:
           echo -p "gem list: $(gem list)"
 
     - script:
-        name: database
-        code: bundle exec rake db:reset
-
-    - script:
         name: test
         code: bundle exec rspec
+
+deploy:
+  steps:
+    - heroku-deploy:
+        key: $HEROKU_KEY
+        user: $HEROKU_USER
+        app-name: $HEROKU_APP_NAME

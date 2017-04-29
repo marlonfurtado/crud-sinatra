@@ -11,19 +11,16 @@ build:
           echo "from location $(which ruby)"
           echo -p "gem list: $(gem list)"
 
-database:
   steps:
     - script:
         name: database
         code: bundle exec rake db:reset
 
-test:
   steps:
     - script:
         name: test
         code: bundle exec rspec -fd
 
-deploy:
   steps:
     - heroku-deploy:
         run: rake db:migrate
